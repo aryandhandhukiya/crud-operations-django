@@ -1,0 +1,12 @@
+<!-- persons/templates/persons/person_list.html -->
+<h2>Person List</h2>
+<a href="{% url 'create_person' %}">Add New Person</a>
+<ul>
+    {% for person in persons %}
+        <li>
+            {{ person.fname }} {{ person.lname }} - Age: {{ person.age }}, Email: {{ person.email }}, City: {{ person.city }}
+            <a href="{% url 'update_person' person.pk %}">Edit</a>
+            <a href="{% url 'delete_person' person.pk %}">Delete</a>
+        </li>
+    {% endfor %}
+</ul>
