@@ -1,0 +1,26 @@
+<h2>Blog Posts</h2>
+
+<!-- Use a button-styled link instead of an <a> tag inside a button -->
+<button>
+<a href="{% url 'create_blog' %}">Create New Blog Post</a>
+</button>
+
+<ul>
+    {% for blog in blogs %}
+        <li>
+            <!-- Link to the blog post detail page -->
+            <h3><a href="{% url 'blog_detail' blog.pk %}">{{ blog.title }}</a> by {{ blog.author }}</h3>
+            
+            {% if blog.image %}
+                <img src="{{ blog.image.url }}" alt="{{ blog.title }}" style="width: 100px; height: auto;">
+            {% endif %}
+            
+            <!-- Display a short preview of the content -->
+            <p>{{ blog.content|truncatewords:20 }}</p>
+            
+            <!-- Edit and Delete links for each blog post -->
+            <a href="{% url 'update_blog' blog.pk %}">Edit</a> |
+            <a href="{% url 'delete_blog' blog.pk %}">Delete</a>
+        </li>
+    {% endfor %}
+</ul>

@@ -1,0 +1,28 @@
+<!-- persons/templates/persons/blog_detail.html -->
+
+<h2>{{ blog.title }}</h2>
+<p>By {{ blog.author }} on {{ blog.published_date }}</p>
+{% if blog.image %}
+    <img src="{{ blog.image.url }}" alt="{{ blog.title }}" style="width: 300px; height: auto;">
+{% endif %}
+<p>{{ blog.content }}</p>
+
+<h3>Comments</h3>
+<ul>
+    {% for comment in comments %}
+        <li>
+            <strong>{{ comment.name }}</strong> on {{ comment.created_date }}:
+            <p>{{ comment.content }}</p>
+        </li>
+    {% empty %}
+        <li>No comments yet.</li>
+    {% endfor %}
+</ul>
+
+<h3>Add a Comment</h3>
+<form method="post">
+    {% csrf_token %}
+    {{ comment_form.as_p }}
+    <button type="submit">Submit Comment</button>
+</form>
+<a href="{% url 'blog_list' %}">Back to Blog List</a>

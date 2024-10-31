@@ -1,8 +1,0 @@
-<!-- persons/templates/persons/person_form.html -->
-<h2>{{ form.instance.pk|yesno:"Update Person,Create Person" }}</h2>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Save</button>
-</form>
-<a href="{% url 'person_list' %}">Back to List</a>

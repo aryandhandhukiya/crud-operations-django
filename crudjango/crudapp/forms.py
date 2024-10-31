@@ -1,7 +1,12 @@
 from django import forms
-from .models import Persons
+from .models import BlogPost, Comment
 
-class PersonForm(forms.ModelForm):
+class BlogPostForm(forms.ModelForm):
     class Meta:
-        model = Persons
-        fields = ['fname', 'lname', 'age', 'email', 'city']
+        model = BlogPost
+        fields = ['title', 'content', 'author', 'image']
+    
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ['name', 'email', 'content']

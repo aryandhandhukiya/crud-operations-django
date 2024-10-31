@@ -1,0 +1,10 @@
+<!-- blog/templates/blog/blog_form.html -->
+<center>
+<h2>{% if form.instance.pk %}Edit Blog Post{% else %}New Blog Post{% endif %}</h2>
+<form method="post" enctype="multipart/form-data">  <!-- Add enctype here -->
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+</form>
+<a href="{% url 'blog_list' %}">Back to Blog List</a>
+ </center>
