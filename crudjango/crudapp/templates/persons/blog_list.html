@@ -1,5 +1,103 @@
 <h2>Blog Posts</h2>
+<style>
+    /* General layout styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
 
+h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+/* Styling the button and button link */
+button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+button a {
+    color: white;
+    text-decoration: none;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Blog post list styling */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color: #f9f9f9;
+    transition: box-shadow 0.3s;
+}
+
+li:hover {
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Blog post title styling */
+h3 {
+    margin: 0;
+    font-size: 20px;
+}
+
+h3 a {
+    text-decoration: none;
+    color: #333;
+}
+
+h3 a:hover {
+    color: #4CAF50;
+}
+
+/* Blog image styling */
+img {
+    display: block;
+    margin-top: 10px;
+    border-radius: 4px;
+}
+
+/* Truncated content styling */
+p {
+    color: #666;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+/* Edit and delete link styling */
+a {
+    text-decoration: none;
+    color: #007BFF;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a + a {
+    margin-left: 10px;
+    color: #FF6347; /* Red color for delete */
+}
+
+</style>
 <!-- Use a button-styled link instead of an <a> tag inside a button -->
 <button>
 <a href="{% url 'create_blog' %}">Create New Blog Post</a>
